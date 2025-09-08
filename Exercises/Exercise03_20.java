@@ -1,0 +1,23 @@
+package chapter03.Exercises;
+
+import java.util.Scanner;
+
+public class Exercise03_20 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the temperature in Fahrenheit between -58 `F and 41 `F: ");
+        double temperature = input.nextDouble();
+
+        System.out.println("Enter the wind speed (>=2) in miles per hour: ");
+        double wind = input.nextDouble();
+
+        if (temperature < -58.0 || temperature > 41.0 || wind < 2) {
+            System.out.println("Invalid temperature and/or wind value!!!");
+        } else {
+            double windChillTemperature = 35.74 + (0.6215 * temperature) - (35.75 * (Math.pow(wind, 0.16))) + (0.4275 * temperature * (Math.pow(wind, 0.16)));
+
+            System.out.println("The wind chill index is " + (int) (windChillTemperature * 100) / 100.0);
+        }
+    }
+}
